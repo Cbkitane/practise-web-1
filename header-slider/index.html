@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Welcome</title>
+</head>
+<body onload="slider()">
+    <div class="banner">
+        <div class="slider">
+            <img src="images/slider-1.jpg" id="slideImg">
+        </div>
+        <div class="overlay">
+            <div class="navbar">
+                <div class="logo">
+                    <span>Logo</span>
+                </div>
+                <div class="menu-items">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><li><a href="">About</a></li></li>
+                        <li><li><a href="">Contact</a></li></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="content">  
+                <h1>LET'S START DESIGNING</h1>
+                <h3>Subscribe to my YT channel</h3>
+
+                <div class="buttons">
+                    <button>Watch More</button>
+                    <button>Subscribe</button>
+            
+                </div>
+            </div>
+            <div class="slider-btn">
+                <!-- <img src="images/angle-left.svg" alt="" id="left-btn">
+                <img src="images/angle-right.svg" alt="" id="right-btn"> -->
+                <!-- <button id="left-btn">LEFT</button>
+                <button id="right-btn">RIGHT</button> -->
+                <button id="left-btn"><i></i></button>
+                <button id="right-btn"><i></i></button>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        var slideImg = document.getElementById("slideImg");
+        var images = new Array(
+            "images/slider-1.jpg",
+            "images/slider-2.jpg",
+            "images/slider-3.jpg",
+            "images/slider-4.jpg"
+        );
+        var len = images.length;
+        var i = 0;
+
+        var current = 0; 
+
+        // function slider(){
+            
+        //     if(current > len - 1){
+        //         current = 0;
+        //     }
+        //     current = images.indexOf(images[current]);
+        //     slideImg.src = images[current];
+        //     current++;
+        //     setTimeout('slider()', 2000);
+        // };
+    
+        var leftBtn = document.getElementById('left-btn');
+        var rightBtn = document.getElementById('right-btn');
+
+        leftBtn.onclick = function(){
+            if(current == 0){
+                current = len - 1;
+                slideImg.src = images[current];
+            }else{
+                current--;
+                if(current < 0 ){
+                    current = len - 1;
+                }
+                slideImg.src = images[current];
+            }
+        }
+
+        rightBtn.onclick = function(){
+            if(current == len){
+                slideImg.src = images[0];
+                current = 0;
+            }
+            current++;
+            if(current > len - 1){
+                current = 0;
+            }   
+            slideImg.src = images[current];
+        }
+        
+
+    </script>
+</body>
+</html>
